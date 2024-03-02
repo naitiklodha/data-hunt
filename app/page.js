@@ -14,11 +14,8 @@ const TeamRegistrationPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-
     localStorage.setItem("team", JSON.stringify(teamName));
     router.push("/hunt");
-    alert("Om namah shivay!");
   };
 
   return (
@@ -56,7 +53,7 @@ const TeamRegistrationPage = () => {
             <label className="block mb-2 font-bold">Year</label>
             <select
               className="w-full px-3 py-2 bg-transparent text-gray-300 border border-gray-300 rounded"
-              value={course}
+              value={year}
               onChange={(e) => setYear(e.target.value)}
               required
             >

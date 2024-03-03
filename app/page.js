@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { Input } from "@material-tailwind/react";
+import { Input, Select, Option } from "@material-tailwind/react";
 
 const TeamRegistrationPage = () => {
   const [teamName, setTeamName] = useState("");
@@ -45,31 +45,45 @@ const TeamRegistrationPage = () => {
               />
             </div>
             <div className="mb-4 flex gap-4">
-              <select
-                className="w-full px-3 py-4 border bg-transparent text-gray-300 border-gray-300 rounded"
+              <Select
+                className="w-full px-3 py-4  bg-transparent text-gray-300 rounded"
                 value={course}
-                onChange={(e) => setCourse(e.target.value)}
+                onChange={(val) => setCourse(val)}
+                label="Select Course"
+                labelProps={{
+                  className: "text-sm uppercase text-[#FFD700] font-bold",
+                }}
+                menuProps={{
+                  className: "bg-black text-gray-200",
+                }}
                 required
               >
-                <option value="">Select Course</option>
-                <option value="btech">BTech</option>
-                <option value="bti">BTI</option>
-                <option value="mbatech">MBA Tech</option>
-              </select>
-              <select
-                className="w-full px-3 py-4 bg-transparent text-gray-300 border border-gray-300 rounded"
+                <Option value="btech">BTech</Option>
+                <Option value="bti">BTI</Option>
+                <Option value="mbatech">MBA Tech</Option>
+              </Select>
+              <Select
+                className="w-full px-3 py-4 bg-transparent text-gray-300 rounded"
                 value={year}
-                onChange={(e) => setYear(e.target.value)}
+                onChange={(val) => setYear(val)}
                 required
+                label="Year"
+                variant="outlined"
+                color="yellow"
+                labelProps={{
+                  className: "text-sm uppercase text-[#FFD700] font-bold",
+                }}
+                menuProps={{
+                  className: "bg-black text-gray-200",
+                }}
               >
-                <option value="">Select Year</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-              </select>
+                <Option value="1">1</Option>
+                <Option value="2">2</Option>
+                <Option value="3">3</Option>
+                <Option value="4">4</Option>
+                <Option value="5">5</Option>
+                <Option value="6">6</Option>
+              </Select>
             </div>
 
             <div className="mb-4 relative">

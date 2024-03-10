@@ -14,8 +14,16 @@ const TeamRegistrationPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("team", JSON.stringify(teamName));
-    router.push("/hunt");
+    const team = {
+      teamName,
+      course,
+      year,
+      member1,
+      member2,
+    };
+    localStorage.setItem("team", JSON.stringify(team));
+    alert("Registration succesful");
+    router.push("/hunt1");
   };
 
   return (
@@ -34,14 +42,12 @@ const TeamRegistrationPage = () => {
               <label className="block mb-2 text-4xl uppercase font-bold py-2">
                 Team Name
               </label>
-              <Input
+              <input
                 type="text"
-                className="w-full px-3 py-6 border bg-transparent text-gray-300 rounded"
+                className="w-full px-3 py-4 text-xl border bg-transparent text-gray-300 rounded"
                 value={teamName}
                 onChange={(e) => setTeamName(e.target.value)}
-                placeholder="Enter team name"
-                variant="outlined"
-                color="yellow"
+               
               />
             </div>
             <div className="mb-4 flex gap-4">

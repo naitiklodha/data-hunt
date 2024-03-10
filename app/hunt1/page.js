@@ -10,7 +10,7 @@ const Hunt1 = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (answer1 === "031910") {
+    if (answer1 === "16121212") {
       setTeam({ ...team, hunt1: true });
       const data = { ...team, hunt1: true };
 

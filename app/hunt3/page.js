@@ -4,9 +4,7 @@ import React, { useEffect, useState } from "react";
 
 const Hunt3 = () => {
   const [answer1, setAnswer1] = useState("");
-  const [team, setTeam] = useState(
-    JSON.parse(localStorage.getItem("team")) || {}
-  );
+  const [team, setTeam] = useState();
 
   const router = useRouter();
 
@@ -42,9 +40,7 @@ const Hunt3 = () => {
         <div className="bg-[#131313] bg-cover p-8 rounded-md shadow-md w-[1278px] h-[685px] flex flex-row justify-around items-center object-cover ">
           <div className="w-full m-4">
             <h4 className="text-4xl m-4 font-extrabold">QUEST 2</h4>
-            <div className="text-xl m-4">
-             WIP sirji
-            </div>
+            <div className="text-xl m-4">WIP sirji</div>
           </div>
           <form
             onSubmit={handleSubmit}

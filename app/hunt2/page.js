@@ -4,9 +4,7 @@ import React, { useEffect, useState } from "react";
 
 const Hunt2 = () => {
   const [answer1, setAnswer1] = useState("");
-  const [team, setTeam] = useState(
-    JSON.parse(localStorage.getItem("team")) || {}
-  );
+  const [team, setTeam] = useState({});
 
   const router = useRouter();
 
@@ -28,7 +26,6 @@ const Hunt2 = () => {
     if (teamData == null || teamData?.hunt1 === undefined) {
       router.push("/");
     }
-  
   }, []);
   useEffect(() => {
     localStorage.setItem("team", JSON.stringify(team));

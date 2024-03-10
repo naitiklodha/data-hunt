@@ -4,16 +4,18 @@ import React, { useEffect, useState } from "react";
 
 const Hunt1 = () => {
   const [answer1, setAnswer1] = useState("");
-  const [team, setTeam] = useState({});
+  const [team, setTeam] = useState(null);
 
   const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (answer1 === "031910") {
-      alert("Hooray you have completed quest 1");
       setTeam({ ...team, hunt1: true });
-      localStorage.setItem("team", JSON.stringify(team));
+      const data = { ...team, hunt1: true };
+
+      localStorage.setItem("team", JSON.stringify(data));
+
       router.push("/hunt2");
     } else {
       alert("Galat ho sir.Retry karo please");
@@ -22,14 +24,14 @@ const Hunt1 = () => {
   };
   useEffect(() => {
     const teamData = JSON.parse(localStorage.getItem("team")) || null;
-    setTeam(teamData);
     if (teamData == null) {
       router.push("/");
+    } else {
     }
+
+    setTeam(JSON.parse(localStorage.getItem("team")));
   }, []);
-  useEffect(() => {
-    localStorage.setItem("team", JSON.stringify(team));
-  }, [team]);
+
   return (
     <>
       <div className="md:hidden border-white border-2 mx-8 my-8  rounded-lg shadow-md p-4 text-center">

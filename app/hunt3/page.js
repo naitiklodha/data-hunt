@@ -24,7 +24,7 @@ const Hunt3 = () => {
     const teamData = JSON.parse(localStorage.getItem("team")) || null;
     setTeam(teamData);
     if (teamData == null || teamData?.hunt2 === undefined) {
-      router.push("/");
+      router.push("/hunt2");
     }
   }, []);
   useEffect(() => {

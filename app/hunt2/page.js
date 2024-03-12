@@ -10,7 +10,7 @@ const Hunt2 = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (answer1.toUpperCase().replaceAll(' ','') === "NEUROTECHH") {
+    if (answer1.toUpperCase().replaceAll(" ", "") === "NEUROTECHH") {
       setTeam({ ...team, hunt2: true });
 
       const data = { ...team, hunt2: true };
@@ -44,18 +44,21 @@ const Hunt2 = () => {
               QUEST 2
             </h4>
             <div className="text-xl m-4">
-              In the midst of the celestial sphere's gentle caress, seek out the
-              ethereal markers bearing the royal decree "Scan me," scattered
-              across sanctuaries where the sun's radiance graces the earth.
-              <br />
-              <br /> These enigmatic symbols, shrouded in mystery, conceal the
-              key to unlocking the next chapter of your quest. Amidst the play
-              of light and shadow, amidst the whispers of hidden truths, let
-              your intuition guide you to these mystical artifacts.
+              Under the caress of the celestial sphere, look for the markers
+              adorned with the royal command "Scan me," spread across elevated
+              sanctuaries basking in the warmth of the sun.
               <br />
               <br />
-              Embrace the journey as you unravel the secrets that lie within the
-              sunlit realms, venturing forth into the unknown with each step.
+              These cryptic symbols, cloaked in mystery, harbor the secrets
+              necessary for your journey's progression. Navigate through the
+              interplay of brightness and shadow, guided by your intuition
+              towards these mystical treasures.
+              <br />
+              <br />
+              Embrace the unfolding expedition as you unearth the enigmatic
+              truths concealed within sunlit domains, venturing into the unknown
+              with each step, possibly leading you to a raised platform offering
+              panoramic views.
               <br />
             </div>
           </div>
@@ -71,7 +74,7 @@ const Hunt2 = () => {
               placeholder="Enter your answer here"
             />
             <label className="text-[#FFD700] ">
-              Just the first word you see on the site
+				Input Format: XYZ
             </label>
             <button
               type="submit"

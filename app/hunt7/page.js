@@ -66,7 +66,7 @@ const Hunt2 = () => {
                   placeholder="Enter your answer here"
                 />
                 <label className="text-[#FFD700] bg-[#090909]">
-                  Ensure that there are no whitespaces
+                  Input Format: XYZ ABC(Please not this is just input format and does not represent count of characters)
                 </label>
                 <button
                   type="submit"

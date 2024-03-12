@@ -75,9 +75,7 @@ const Hunt1 = () => {
               onChange={(e) => setAnswer1(e.target.value)}
               placeholder="Enter your answer here"
             />
-            <label className="text-[#FFD700] ">
-              Ensure that there are no whitespaces
-            </label>
+            <label className="text-[#FFD700] ">Input Format: XYZ</label>
             <button
               type="submit"
               className="bg-black hover:text-black transition-colors delay-150 hover:bg-[#FFD700] m-4 mt-8  animate-infinite uppercase text-2xl border-2 border-[#FFD700]  py-2 px-6  block rounded hover: font-extrabold  tracking-wider text-[#FFD700] mx-auto"

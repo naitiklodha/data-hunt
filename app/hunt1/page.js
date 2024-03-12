@@ -49,7 +49,8 @@ const Hunt1 = () => {
               mystery looms in the ledger of timestamps.
               <br /> <br />
               Now, in the quest to unravel this enigma, can you provide the
-              counts for entries marked as 'Morning' and 'Night'? (seperate them with spaces)
+              counts for entries marked as 'Morning' and 'Night'? (seperate them
+              with spaces)
               <br />
             </div>
             <a href="Quest 1.csv" download={"Quest 1.csv"}>
@@ -72,7 +73,9 @@ const Hunt1 = () => {
               onChange={(e) => setAnswer1(e.target.value)}
               placeholder="Enter your answer here"
             />
-        
+            <label className="text-[#FFD700] ">
+              Input Format: XX XX
+            </label>
             <button
               type="submit"
               className="bg-black hover:text-black transition-colors delay-150 hover:bg-[#FFD700] m-4 mt-8  animate-infinite uppercase text-2xl border-2 border-[#FFD700]  py-2 px-6  block rounded hover: font-extrabold  tracking-wider text-[#FFD700] mx-auto"

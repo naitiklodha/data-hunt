@@ -27,7 +27,11 @@ const Hunt1 = () => {
   };
   useEffect(() => {
     const teamData = JSON.parse(localStorage.getItem("team")) || null;
-    if (teamData == null || teamData?.hunt5 === undefined||teamData.hunt5===false) {
+    if (
+      teamData == null ||
+      teamData?.hunt5 === undefined ||
+      teamData.hunt5 === false
+    ) {
       router.push("/hunt5");
     } else {
     }
@@ -70,9 +74,7 @@ const Hunt1 = () => {
                 onChange={(e) => setAnswer1(e.target.value)}
                 placeholder="1/0"
               />
-              <label className="text-[#FFD700] block">
-                Ensure that there are no whitespaces
-              </label>
+              <label className="text-[#FFD700] block">Input Format: X </label>
 
               <button
                 type="submit"

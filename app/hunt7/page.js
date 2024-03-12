@@ -11,7 +11,7 @@ const Hunt2 = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (answer1 === "Analytika DataHunt") {
+    if (answer1.toLowerCase().replaceAll(" ","") === "analytikadatahunt") {
       alert("Hooray you have completed quest 4 too");
       setTeam({ ...team, hunt7: true });
 

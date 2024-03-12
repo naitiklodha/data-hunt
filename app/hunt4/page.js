@@ -68,7 +68,7 @@ const Hunt2 = () => {
                   placeholder="Enter your answer here"
                 />
                 <label className="text-[#FFD700] bg-[#090909]">
-                  Input Format: XYZ ABC (please note this is just for showing the format and does not represnet count of letters for your answer)
+                  Input Format: XYZ ABC (please note this is just for showing the format and does not represent count of letters for your answer)
                 </label>
                 <button
                   type="submit"

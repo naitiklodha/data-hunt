@@ -10,12 +10,10 @@ const Hunt1 = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (answer1 === "Macy's") {
+    if (answer1.toLowerCase().replaceAll(" ", "") === "macy's") {
       setTeam({ ...team, hunt8: true });
       const data = { ...team, hunt8: true };
-
       localStorage.setItem("team", JSON.stringify(data));
-
       router.push("/treasure");
     } else {
       alert("Galat ho sir.Retry karo please");

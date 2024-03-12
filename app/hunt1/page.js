@@ -10,7 +10,7 @@ const Hunt1 = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (answer1.replaceAll(" ", "") === "1481016") {
+    if (answer1.replaceAll(" ", "") === "44106") {
       setTeam({ ...team, hunt1: true });
       const data = { ...team, hunt1: true };
 

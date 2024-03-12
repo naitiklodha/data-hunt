@@ -1,78 +1,214 @@
 "use client";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 
-const Hunt2 = () => {
-	const [answer1, setAnswer1] = useState("");
-	const [team, setTeam] = useState(null);
+const Hunt7 = () => {
+  const [answer1, setAnswer1] = useState("");
+  const [team, setTeam] = useState(null);
+  const [gameRunning, setGameRunning] = useState(false);
+  const [score, setScore] = useState(0);
 
-	const router = useRouter();
+  const router = useRouter();
+  const handleStartGame = () => {
+    setGameRunning(true);
+  };
+ 
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		if (answer1 === "LOOKCLOSER") {
-			alert("Hooray you have completed quest 5 too");
-			setTeam({ ...team, hunt5: true });
+  useEffect(() => {
+    const teamData = JSON.parse(localStorage.getItem("team")) || null;
+    if (teamData == null||teamData?.hunt4===undefined) {
+      router.push("/");
+    } else {
+      setTeam(JSON.parse(localStorage.getItem("team")));
+    }
+  }, []);
+  useEffect(() => {
+    if (score == 100) {
+      setTeam({ ...team, hunt5: true });
+      const data = { ...team, hunt5: true };
+      localStorage.setItem("team", JSON.stringify(data));
+      router.push("/hunt6");
+    }
+  }, [score]);
 
-			const data = { ...team, hunt5: true };
-			console.log(data);
-			localStorage.setItem("team", JSON.stringify(data));
-			router.push("/hunt-6");
-		} else {
-			alert("Galat ho sir.Retry karo please");
-			setAnswer1("");
-		}
-	};
-	useEffect(() => {
-		const teamData = JSON.parse(localStorage.getItem("team")) || null;
-		setTeam(teamData);
-		if (teamData == null || teamData?.hunt4 === undefined) {
-			router.push("/hunt4");
-		}
-		setTeam(JSON.parse(localStorage.getItem("team")));
-	}, []);
+  useEffect(() => {
+    const handleEndGame = (message) => {
+      setGameRunning(false);
+      alert(message);
+    };
 
-	return (
-		<>
-			<div className="md:hidden border-white border-2 mx-8 my-8  rounded-lg shadow-md p-4 text-center">
-				<p>Mobile pe mat dekho sir/mam. PC pe check karo pleaseeee</p>
-			</div>
+    if (gameRunning) {
+      let snake = [
+        { x: 200, y: 200 },
+        { x: 190, y: 200 },
+        { x: 180, y: 200 },
+        { x: 170, y: 200 },
+        { x: 160, y: 200 },
+      ];
 
-			<div className="hidden md:flex bg-[url('../public/landing.png')] bg-cover text-[#FFD700] min-h-screen  justify-center items-center">
-				<div className="bg-[#131313] bg-cover p-8 rounded-md shadow-md w-[1278px] h-[685px] flex flex-row justify-around items-center object-cover ">
-					<div className="w-full m-4">
-						<h4 className="text-4xl m-4 font-extrabold">QUEST 4</h4>
-						<div className="text-4xl m-4">
-							<br />
-							WIP SIRJI
-						</div>
-					</div>
-					<form
-						onSubmit={handleSubmit}
-						className="w-[60%] mx-auto pr-20 space-y-8"
-					>
-						<input
-							type="text"
-							className="w-full px-3 py-4 text-xl border bg-transparent text-gray-300 rounded"
-							value={answer1}
-							onChange={(e) => setAnswer1(e.target.value)}
-							placeholder="Enter your answer here"
-						/>
-						<label className="text-[#FFD700] block">
-							Ensure that there are no whitespaces
-						</label>
-						<button
-							type="submit"
-							className="bg-purple-600 uppercase text-2xl border-l-[#c6fc2b] border-l-4 border-[#c6fc2b] border-b-4 py-2 px-6 mx-auto block rounded hover: font-extrabold italic tracking-wider text-[#FFD700]"
-						>
-							Submit
-						</button>
-					</form>
-				</div>
-			</div>
-		</>
-	);
+      // Horizontal velocity
+      let dx = 10;
+      // Vertical velocity
+      let dy = 0;
+      let scoreee = 0;
+
+      let food_x;
+      let food_y;
+
+      let gameInterval;
+
+      function main() {
+        gameInterval = setInterval(() => {
+          if (has_game_ended()) {
+            clearInterval(gameInterval);
+            setScore(0);
+
+            handleEndGame("Game Over. You lost!");
+            return;
+          }
+
+          clear_board();
+          drawFood();
+          move_snake();
+          drawSnake();
+        }, 100);
+      }
+
+      function clear_board() {
+        const snakeboard = document.getElementById("snakeboard");
+        const snakeboard_ctx = snakeboard.getContext("2d");
+        snakeboard_ctx.fillStyle = "#131313";
+        snakeboard_ctx.fillRect(0, 0, snakeboard.width, snakeboard.height);
+        snakeboard_ctx.strokeRect(0, 0, snakeboard.width, snakeboard.height);
+      }
+
+      function drawSnake() {
+        const snakeboard = document.getElementById("snakeboard");
+        const snakeboard_ctx = snakeboard.getContext("2d");
+        snake.forEach((snakePart) => {
+          snakeboard_ctx.fillStyle = "#7f00ff";
+          snakeboard_ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
+          snakeboard_ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
+        });
+      }
+
+      function drawFood() {
+        const snakeboard = document.getElementById("snakeboard");
+        const snakeboard_ctx = snakeboard.getContext("2d");
+        snakeboard_ctx.fillStyle = "#ffd700";
+        snakeboard_ctx.fillRect(food_x, food_y, 10, 10);
+        snakeboard_ctx.strokeRect(food_x, food_y, 10, 10);
+      }
+
+      function has_game_ended() {
+        for (let i = 4; i < snake.length; i++) {
+          if (snake[i].x === snake[0].x && snake[i].y === snake[0].y)
+            return true;
+        }
+        const hitLeftWall = snake[0].x < 0;
+        const hitRightWall = snake[0].x > 600 - 10;
+        const hitToptWall = snake[0].y < 0;
+        const hitBottomWall = snake[0].y > 400 - 10;
+        return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall;
+      }
+
+      function random_food(min, max) {
+        return Math.round((Math.random() * (max - min) + min) / 10) * 10;
+      }
+
+      function gen_food() {
+        food_x = random_food(0, 600 - 10);
+        food_y = random_food(0, 400 - 10);
+        snake.forEach((part) => {
+          const has_eaten = part.x === food_x && part.y === food_y;
+          if (has_eaten) gen_food();
+        });
+      }
+
+      function move_snake() {
+        const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+        snake.unshift(head);
+        const has_eaten_food = snake[0].x === food_x && snake[0].y === food_y;
+        if (has_eaten_food) {
+          handle_eaten_food();
+        } else {
+          snake.pop();
+        }
+      }
+      function handle_eaten_food() {
+        scoreee += 10;
+        setScore(scoreee);
+        console.log(score);
+        gen_food();
+      }
+
+      const change_direction = (event) => {
+        const LEFT_KEY = 37;
+        const RIGHT_KEY = 39;
+        const UP_KEY = 38;
+        const DOWN_KEY = 40;
+
+        if (event.keyCode === LEFT_KEY && dx !== 10) {
+          dx = -10;
+          dy = 0;
+        }
+        if (event.keyCode === UP_KEY && dy !== 10) {
+          dx = 0;
+          dy = -10;
+        }
+        if (event.keyCode === RIGHT_KEY && dx !== -10) {
+          dx = 10;
+          dy = 0;
+        }
+        if (event.keyCode === DOWN_KEY && dy !== -10) {
+          dx = 0;
+          dy = 10;
+        }
+      };
+
+      document.addEventListener("keydown", change_direction);
+
+      gen_food();
+      main();
+
+      return () => {
+        clearInterval(gameInterval);
+        document.removeEventListener("keydown", change_direction);
+      };
+    }
+  }, [gameRunning]);
+
+  return (
+    <>
+      <div className="md:hidden border-white border-2 mx-8 my-8  rounded-lg shadow-md p-4 text-center">
+        <p>Do not play on mobile. Please use a PC.</p>
+      </div>
+
+      <div className="hidden md:flex bg-[url('../public/landing.png')] bg-cover text-gray-300 min-h-screen  justify-center items-center">
+        <div className="bg-[#131313] bg-[url('../public/shapess.png')] bg-cover p-8 rounded-2xl shadow-md w-[1278px] min-h-[685px] flex flex-col justify-around items-center object-cover ">
+          <div className="w-full m-4">
+            <h4 className="text-4xl m-4 font-black   text-[#FFD700]">
+              QUEST 5
+            </h4>
+            <div className="text-xl m-4">
+              Get 100 Points in this Snake Game to move to next quest!
+              <br />
+            </div>
+            <button
+              className="bg-purple-600 uppercase text-2xl border-l-[#c6fc2b] border-l-4 border-[#c6fc2b] border-b-4 py-2 px-6 m-4 block rounded hover: font-extrabold italic tracking-wider text-[#FFD700]"
+              onClick={handleStartGame}
+            >
+              Start Game
+            </button>
+          </div>
+          <div id="score" className="text-[#FFD700] block text-2xl text-bold">
+            {score}
+          </div>
+          <canvas id="snakeboard" width="600" height="400"></canvas>
+        </div>
+      </div>
+    </>
+  );
 };
 
-export default Hunt2;
+export default Hunt7;

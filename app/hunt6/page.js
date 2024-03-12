@@ -24,8 +24,8 @@ const Hunt1 = () => {
 	};
 	useEffect(() => {
 		const teamData = JSON.parse(localStorage.getItem("team")) || null;
-		if (teamData == null) {
-			router.push("/");
+		if (teamData == null || teamData?.hunt5===undefined) {
+			router.push("/hunt5");
 		} else {
 		}
 

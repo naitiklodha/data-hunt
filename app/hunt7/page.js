@@ -79,10 +79,10 @@ const Hunt2 = () => {
           </div>
           <div>
             <Image
-              src="/quest 7.png"
+              src="quest 7.png"
               width={500}
               height={100}
-              alt="kuch to hua hai"
+              alt="Please download the image"
             />
             <a href="quest 7.png" download={"quest 7.png"}>
               <button

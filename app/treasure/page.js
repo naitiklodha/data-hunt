@@ -30,7 +30,7 @@ const Hunt1 = () => {
 						<h4 className="text-white text-3xl font-black mx-auto ">
 							Congratulations team{" "}
 							<span className="bg-[#7f00ff] p-2 rounded-xl">
-								AlphaCoders {team?.teamName}
+								 {team?.teamName}
 							</span>
 						</h4>
 						<h5 className="text-8xl text-center font-bold">

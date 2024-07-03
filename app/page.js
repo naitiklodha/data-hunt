@@ -40,7 +40,7 @@ const TeamRegistrationPage = () => {
           >
             <div className="mb-4">
               <label className="block mb-2 text-4xl uppercase font-bold py-2">
-                Team Name
+               Name
               </label>
               <input
                 type="text"
@@ -70,7 +70,7 @@ const TeamRegistrationPage = () => {
               
             </div>
 
-            <div className="mb-4 relative">
+            {/* <div className="mb-4 relative">
               <label className="absolute mb-2 text-sm z-20 inset-0 left-3 -top-2 bg-[#131313] w-fit h-fit uppercase font-bold ">
                 Member 1
               </label>
@@ -97,7 +97,7 @@ const TeamRegistrationPage = () => {
                 variant="outlined"
                 color="yellow"
               />
-            </div>
+            </div> */}
             <button
               type="submit"
               className="bg-purple-600 uppercase text-2xl border-l-[#c6fc2b] border-l-4 border-[#c6fc2b] border-b-4 py-2 px-6 mx-auto block rounded hover: font-extrabold italic tracking-wider text-[#FFD700]"

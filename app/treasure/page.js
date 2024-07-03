@@ -28,7 +28,7 @@ const Hunt1 = () => {
 				<div className="bg-[#131313] text-[#FFD700]  bg-[url('../public/shapess.png')] bg-cover p-8 rounded-2xl shadow-md w-[1278px] h-[685px] flex flex-row justify-around items-center object-cover ">
 					<div className="flex flex-col gap-4 space-y-10">
 						<h4 className="text-white text-3xl font-black mx-auto ">
-							Congratulations team{" "}
+							Congratulations {" "}
 							<span className="bg-[#7f00ff] p-2 rounded-xl">
 								 {team?.teamName}
 							</span>

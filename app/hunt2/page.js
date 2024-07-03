@@ -41,7 +41,7 @@ const Hunt2 = () => {
         <div className="bg-[#131313] bg-[url('../public/shapess.png')] bg-cover p-8 text-gray-300 rounded-2xl shadow-md w-[1278px] h-[685px] flex flex-row justify-around items-center object-cover ">
           <div className="w-full m-4">
             <h4 className="text-4xl m-4 font-extrabold text-[#FFD700] ">
-              QUEST 2
+              Round 2
             </h4>
             <div className="text-xl m-4">
               Under the caress of the celestial sphere, look for the markers

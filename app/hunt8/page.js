@@ -40,7 +40,7 @@ const Hunt1 = () => {
         <div className="bg-[#131313] bg-[url('../public/shapess.png')] bg-cover p-8 rounded-2xl shadow-md w-[1278px] h-[685px] flex flex-row justify-around items-center object-cover ">
           <div className="w-full m-4">
             <h4 className="text-4xl m-4 font-extrabold text-[#FFD700]">
-              QUEST 8
+              Round 8
             </h4>
             <div className="text-xl m-4">
               Navigate the arcane arts of data sorcery, where the ledger of the

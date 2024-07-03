@@ -49,7 +49,7 @@ const Hunt1 = () => {
         <div className="bg-[#131313] bg-[url('../public/shapess.png')] bg-cover p-8 rounded-2xl shadow-md w-[1278px] min-h-[685px] flex flex-col justify-around items-center object-cover ">
           <div className="w-full m-4">
             <h4 className="text-4xl m-4 font-black   text-[#FFD700]">
-              QUEST 6
+              Round 6
             </h4>
             <div className="text-xl m-4">
               Using knowlege of Logic Gates and Boolean Algebra, you have to

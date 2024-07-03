@@ -65,31 +65,9 @@ const TeamRegistrationPage = () => {
                 required
               >
                 <Option value="btech">BTech</Option>
-                <Option value="bti">BTI</Option>
                 <Option value="mbatech">MBA Tech</Option>
               </Select>
-              <Select
-                className="w-full px-3 py-4 bg-transparent text-gray-300 rounded"
-                value={year}
-                onChange={(val) => setYear(val)}
-                required
-                label="Year"
-                variant="outlined"
-                color="yellow"
-                labelProps={{
-                  className: "text-sm uppercase text-[#FFD700] font-bold",
-                }}
-                menuProps={{
-                  className: "bg-black text-gray-200",
-                }}
-              >
-                <Option value="1">1</Option>
-                <Option value="2">2</Option>
-                <Option value="3">3</Option>
-                <Option value="4">4</Option>
-                <Option value="5">5</Option>
-                <Option value="6">6</Option>
-              </Select>
+              
             </div>
 
             <div className="mb-4 relative">

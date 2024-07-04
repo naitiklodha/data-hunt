@@ -10,7 +10,7 @@ const Hunt2 = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (answer1.toUpperCase().replaceAll(" ", "") === "NEUROTECHH") {
+    if (answer1.toUpperCase().replaceAll(" ", "") === "OPENAI") {
       setTeam({ ...team, hunt2: true });
 
       const data = { ...team, hunt2: true };

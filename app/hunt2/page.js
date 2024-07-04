@@ -10,7 +10,7 @@ const Hunt2 = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (answer1.toUpperCase().replaceAll(" ", "") === "NEUROTECHH") {
+    if (answer1.toUpperCase().replaceAll(" ", "") === "OpenAI") {
       setTeam({ ...team, hunt2: true });
 
       const data = { ...team, hunt2: true };
@@ -44,11 +44,11 @@ const Hunt2 = () => {
               Round 2
             </h4>
             <div className="text-xl m-4">
-              Under the caress of the celestial sphere, look for the markers
-              adorned with the royal command "Scan me," spread across elevated
-              sanctuaries basking in the warmth of the sun.
-              <br />
-              <br />
+            Imagine a world where you could ask any question, and instantly, a wise digital companion 
+            provides you with a detailed and thoughtful answer. This isn't science fiction—it's happening 
+            now! But who are the brilliant minds behind this amazing tool called ChatGPT? (Name the company/organization)
+
+              {/* <br />
               These cryptic symbols, cloaked in mystery, harbor the secrets
               necessary for your journey's progression. Navigate through the
               interplay of brightness and shadow, guided by your intuition
@@ -59,7 +59,7 @@ const Hunt2 = () => {
               truths concealed within sunlit domains, venturing into the unknown
               with each step, possibly leading you to a raised platform offering
               panoramic views.
-              <br />
+              <br /> */}
             </div>
           </div>
           <form
